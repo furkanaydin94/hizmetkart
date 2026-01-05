@@ -1,0 +1,561 @@
+/* ==================== CUSTOMIZER PANEL STİLLERİ ==================== */
+
+.customizer-panel {
+    width: 380px;
+    max-width: 380px;
+    flex-shrink: 0;
+    background: white;
+    border-right: 1px solid #e2e8f0;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+}
+
+.customizer-panel.collapsed {
+    width: 0;
+    max-width: 0;
+    overflow: hidden;
+}
+
+/* Panel Header */
+.panel-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f7fafc;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.panel-header h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin: 0;
+}
+
+.btn-toggle-panel {
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: transparent;
+    color: #718096;
+    cursor: pointer;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.btn-toggle-panel:hover {
+    background: #e2e8f0;
+    color: #2d3748;
+}
+
+.customizer-panel.collapsed .btn-toggle-panel svg {
+    transform: rotate(180deg);
+}
+
+/* Floating toggle when collapsed */
+.customizer-panel.collapsed+.gallery-content::before {
+    content: '';
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 80px;
+    background: linear-gradient(135deg, #2e5c8a 0%, #1a4060 100%);
+    border-radius: 0 8px 8px 0;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-toggle-floating {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 80px;
+    background: linear-gradient(135deg, #2e5c8a 0%, #1a4060 100%);
+    border: none;
+    border-radius: 0 8px 8px 0;
+    color: white;
+    cursor: pointer;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.customizer-panel.collapsed~.btn-toggle-floating {
+    display: flex;
+}
+
+.btn-toggle-floating:hover {
+    width: 45px;
+    background: linear-gradient(135deg, #3a6a9e 0%, #245074 100%);
+}
+
+/* Panel Content */
+.panel-content {
+    padding: 1.5rem;
+}
+
+/* Config Section */
+.config-section {
+    margin-bottom: 2rem;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.section-header h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.btn-text {
+    background: none;
+    border: none;
+    color: #4299e1;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.btn-text:hover {
+    color: #3182ce;
+    text-decoration: underline;
+}
+
+.section-content {
+    background: #f7fafc;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.section-content.collapsed {
+    display: none;
+}
+
+/* Toggle Switch */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    inset: 0;
+    background-color: #cbd5e0;
+    border-radius: 24px;
+    transition: all 0.3s;
+}
+
+.toggle-slider:before {
+    content: "";
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: all 0.3s;
+}
+
+.toggle-switch input:checked+.toggle-slider {
+    background-color: #4299e1;
+}
+
+.toggle-switch input:checked+.toggle-slider:before {
+    transform: translateX(20px);
+}
+
+/* Form Group */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #4a5568;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input[type="text"] {
+    width: 100%;
+    padding: 0.65rem 0.75rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-family: 'Montserrat', sans-serif;
+    transition: all 0.2s;
+}
+
+.form-group input[type="text"]:focus {
+    outline: none;
+    border-color: #4299e1;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+}
+
+.form-group small {
+    display: block;
+    font-size: 0.75rem;
+    color: #718096;
+    margin-top: 0.25rem;
+    font-style: italic;
+}
+
+/* Checkbox Label */
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #4a5568;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #4299e1;
+}
+
+/* Search Box */
+.search-box {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.search-box svg {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #718096;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 0.65rem 0.75rem 0.65rem 2.5rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: #4299e1;
+}
+
+/* Service List */
+.service-list,
+.location-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.service-item,
+.location-item {
+    padding: 0.75rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.service-item:last-child,
+.location-item:last-child {
+    border-bottom: none;
+}
+
+.service-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.service-name {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.service-name input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #4299e1;
+}
+
+.service-name label {
+    font-size: 0.9rem;
+    color: #2d3748;
+    font-weight: 500;
+    cursor: pointer;
+    margin: 0;
+}
+
+.service-expand {
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: transparent;
+    color: #718096;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+}
+
+.service-item.expanded .service-expand {
+    transform: rotate(90deg);
+}
+
+.service-breakdown {
+    margin-top: 0.75rem;
+    padding-left: 1.75rem;
+    display: none;
+}
+
+.service-item.expanded .service-breakdown {
+    display: block;
+}
+
+.breakdown-option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    color: #4a5568;
+}
+
+.breakdown-option input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: #4299e1;
+}
+
+/* Loading Placeholder */
+.loading-placeholder {
+    padding: 2rem;
+    text-align: center;
+    color: #718096;
+    font-size: 0.9rem;
+}
+
+/* Panel Actions */
+.panel-actions {
+    display: flex;
+    gap: 0.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e2e8f0;
+}
+
+.panel-actions button {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.btn-secondary {
+    background: #f7fafc;
+    color: #2d3748;
+    border: 2px solid #e2e8f0;
+}
+
+.btn-secondary:hover {
+    background: #e2e8f0;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.btn-primary:active {
+    transform: translateY(1px);
+}
+
+/* Tür List */
+.tur-list {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.tur-item {
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.tur-item:last-child {
+    border-bottom: none;
+}
+
+.tur-item input[type="checkbox"] {
+    cursor: pointer;
+}
+
+.tur-item label {
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #2d3748;
+    flex: 1;
+}
+
+/* Müdürlük Groups */
+.mudurluk-group {
+    border-bottom: 1px solid #e2e8f0;
+    margin-bottom: 0.5rem;
+}
+
+.mudurluk-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 0.5rem;
+    background: #f7fafc;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.mudurluk-header:hover {
+    background: #e2e8f0;
+}
+
+.mudurluk-name {
+    font-weight: 600;
+    color: #2d3748;
+    font-size: 0.95rem;
+    flex: 1;
+}
+
+.mudurluk-count {
+    font-size: 0.85rem;
+    color: #718096;
+    margin-right: 0.5rem;
+}
+
+.mudurluk-expand {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: #4a5568;
+    transition: transform 0.2s;
+}
+
+.mudurluk-group.expanded .mudurluk-expand {
+    transform: rotate(90deg);
+}
+
+.mudurluk-services {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.mudurluk-group.expanded .mudurluk-services {
+    max-height: 1000px;
+    padding: 0.5rem 0 1rem 1rem;
+}
+
+.service-item-simple {
+    padding: 0.4rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.service-item-simple input[type="checkbox"] {
+    cursor: pointer;
+}
+
+.service-item-simple label {
+    cursor: pointer;
+    font-size: 0.875rem;
+    color: #4a5568;
+}
+
+/* Scrollbar Styling */
+.service-list::-webkit-scrollbar,
+.location-list::-webkit-scrollbar,
+.customizer-panel::-webkit-scrollbar {
+    width: 6px;
+}
+
+.service-list::-webkit-scrollbar-track,
+.location-list::-webkit-scrollbar-track,
+.customizer-panel::-webkit-scrollbar-track {
+    background: #f7fafc;
+}
+
+.service-list::-webkit-scrollbar-thumb,
+.location-list::-webkit-scrollbar-thumb,
+.customizer-panel::-webkit-scrollbar-thumb {
+    background: #cbd5e0;
+    border-radius: 3px;
+}
+
+.service-list::-webkit-scrollbar-thumb:hover,
+.location-list::-webkit-scrollbar-thumb:hover,
+.customizer-panel::-webkit-scrollbar-thumb:hover {
+    background: #a0aec0;
+}

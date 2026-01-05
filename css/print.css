@@ -1,0 +1,21 @@
+/* ==================== YAZDIRMA STİLLERİ ==================== */
+@media print {
+    body {
+        background: white;
+    }
+
+    #loading,
+    #toolbar {
+        display: none !important;
+    }
+
+    #report {
+        margin: 0;
+        max-width: none;
+    }
+
+    .page {
+        box-shadow: none;
+        margin: 0;
+    }
+}

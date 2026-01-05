@@ -1,0 +1,329 @@
+/* ==================== BÖLÜM KAPAK ==================== */
+.section-page {
+    display: flex;
+    height: 297mm;
+    min-height: 297mm;
+    max-height: 297mm;
+    page-break-after: always;
+    overflow: visible;
+    align-items: stretch;
+}
+
+/* Map Inset - Small overview map in corner */
+.map-inset {
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+    width: 220px;
+    height: 110px;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    z-index: 1000;
+    background: white;
+}
+
+.district-label {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.section-sidebar {
+    width: 85mm;
+    background: linear-gradient(180deg, #1a5490 0%, #153d6f 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    position: relative;
+}
+
+.section-sidebar::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        repeating-linear-gradient(90deg, transparent, transparent 30px, rgba(255, 255, 255, 0.08) 30px, rgba(255, 255, 255, 0.08) 31px),
+        repeating-linear-gradient(0deg, transparent, transparent 30px, rgba(255, 255, 255, 0.08) 30px, rgba(255, 255, 255, 0.08) 31px);
+}
+
+.section-title-box {
+    border: 3px solid white;
+    padding: 30px 25px;
+    position: relative;
+    z-index: 1;
+}
+
+.section-title-box h1 {
+    color: white;
+    font-size: 22pt;
+    font-weight: 800;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.section-main {
+    flex: 1;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px;
+}
+
+.section-main p {
+    font-size: 11pt;
+    color: var(--text-muted);
+    line-height: 1.8;
+}
+
+/* ==================== DETAY SAYFA ==================== */
+.detail-page {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Header - KAPAK STİLİ */
+.detail-header {
+    background: linear-gradient(90deg, #1a5490 0%, #153d6f 100%);
+    color: white;
+    padding: 22px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+    box-shadow: 0 3px 10px rgba(26, 84, 144, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.detail-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(255, 255, 255, 0.05) 40px, rgba(255, 255, 255, 0.05) 41px),
+        repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(255, 255, 255, 0.05) 40px, rgba(255, 255, 255, 0.05) 41px);
+    pointer-events: none;
+}
+
+.detail-header-text {
+    position: relative;
+    z-index: 1;
+}
+
+.detail-header-text h2 {
+    font-size: 15pt;
+    font-weight: 700;
+}
+
+.detail-header-text span {
+    font-size: 10pt;
+    opacity: 0.85;
+}
+
+.detail-header img {
+    height: 65px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Harita - BEYAZ ARKA PLAN */
+.detail-map {
+    height: 380px;
+    background: white;
+    flex-shrink: 0;
+    position: relative;
+}
+
+/* İçerik */
+.detail-content {
+    flex: 1;
+    padding: 25px 50px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    background:
+        repeating-linear-gradient(90deg, transparent, transparent 100px, rgba(66, 153, 225, 0.03) 100px, rgba(66, 153, 225, 0.03) 101px),
+        repeating-linear-gradient(0deg, transparent, transparent 100px, rgba(66, 153, 225, 0.03) 100px, rgba(66, 153, 225, 0.03) 101px);
+}
+
+.detail-title {
+    font-size: 15pt;
+    font-weight: 700;
+    color: #1a5490;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid rgba(49, 130, 206, 0.2);
+}
+
+.detail-desc {
+    font-size: 8pt;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 20px;
+    flex: 1;
+}
+
+/* YARIM SAYFA */
+.half-page-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.half-service {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid var(--border);
+    padding: 15px 35px;
+    position: relative;
+    background:
+        repeating-linear-gradient(90deg, transparent, transparent 100px, rgba(66, 153, 225, 0.03) 100px, rgba(66, 153, 225, 0.03) 101px),
+        repeating-linear-gradient(0deg, transparent, transparent 100px, rgba(66, 153, 225, 0.03) 100px, rgba(66, 153, 225, 0.03) 101px);
+}
+
+.half-service:last-child {
+    border-bottom: none;
+}
+
+.half-service .detail-title {
+    font-size: 14pt;
+}
+
+.half-service .detail-grid {
+    gap: 15px;
+}
+
+.half-service .stat-card {
+    padding: 12px 15px;
+}
+
+.half-service .stat-card-value {
+    font-size: 16pt;
+}
+
+/* ==================== ÖZET SAYFA ==================== */
+.ozet-page {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.ozet-header {
+    background: linear-gradient(90deg, #1a5490 0%, #153d6f 100%);
+    color: white;
+    padding: 22px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.ozet-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(255, 255, 255, 0.05) 40px, rgba(255, 255, 255, 0.05) 41px),
+        repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(255, 255, 255, 0.05) 40px, rgba(255, 255, 255, 0.05) 41px);
+    pointer-events: none;
+}
+
+.ozet-header h1 {
+    font-size: 15pt;
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+}
+
+.ozet-header img {
+    height: 50px;
+    position: relative;
+    z-index: 1;
+}
+
+.ozet-body {
+    flex: 1;
+    padding: 20px 50px;
+    overflow: hidden;
+}
+
+.ozet-title {
+    font-size: 12pt;
+    font-weight: 700;
+    color: #153d6f;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #1a5490;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.ozet-mudurluk {
+    margin-bottom: 35px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #cbd5e0;
+}
+
+.ozet-mudurluk:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.ozet-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 40px;
+}
+
+.ozet-col-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 2px solid #153d6f;
+    margin-bottom: 2px;
+}
+
+.ozet-col-header span {
+    font-size: 7.5pt;
+    font-weight: 700;
+    color: #153d6f;
+    text-transform: uppercase;
+}
+
+.ozet-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.ozet-hizmet {
+    font-size: 8pt;
+    font-weight: 500;
+    color: #2d3748;
+    flex: 1;
+}
+
+.ozet-deger {
+    font-size: 8pt;
+    color: #153d6f;
+    font-weight: 700;
+    text-align: right;
+}

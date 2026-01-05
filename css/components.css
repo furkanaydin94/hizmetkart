@@ -1,0 +1,151 @@
+/* ==================== BİLEŞENLER ==================== */
+
+/* Harita Lejandı */
+.map-legend {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 8px 12px;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    font-size: 7.5pt;
+    z-index: 1000;
+}
+
+.map-legend-title {
+    font-weight: 600;
+    color: #1a5490;
+    margin-bottom: 5px;
+    font-size: 8pt;
+}
+
+.map-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 3px 0;
+}
+
+.map-legend-color {
+    width: 16px;
+    height: 10px;
+    border-radius: 2px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Yıllık Tablo */
+.data-section h3 {
+    font-size: 9pt;
+    font-weight: 600;
+    color: #2b6cb0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(49, 130, 206, 0.3);
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 8.5pt;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.data-table th {
+    background: linear-gradient(180deg, #3182ce 0%, #2b6cb0 100%);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 10px 12px;
+    text-align: left;
+    font-size: 7.5pt;
+    letter-spacing: 0.3px;
+}
+
+.data-table td {
+    padding: 9px 12px;
+    border-bottom: 1px solid #edf2f7;
+    transition: background 0.15s ease;
+}
+
+.data-table tr:hover td {
+    background: #f0f7ff;
+}
+
+.data-table tr:nth-child(even) {
+    background: var(--bg-light);
+}
+
+.data-table td:first-child {
+    font-weight: 700;
+    color: var(--blue-dark);
+}
+
+/* Genel İstatistik Kartları */
+.stat-card {
+    background: linear-gradient(135deg, #2b6cb0 0%, #1a5490 100%);
+    color: white;
+    padding: 16px 18px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 15px rgba(26, 84, 144, 0.25);
+}
+
+.stat-card-label {
+    font-size: 8pt;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    opacity: 0.8;
+    margin-bottom: 5px;
+}
+
+.stat-card-value {
+    font-size: 22pt;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.stat-card-secondary {
+    background: white;
+    border: 2px solid var(--blue-main);
+    color: var(--blue-dark);
+}
+
+.stat-card-secondary .stat-card-label {
+    color: var(--text-muted);
+    opacity: 1;
+}
+
+.stat-card-secondary .stat-card-value {
+    color: var(--blue-main);
+    font-size: 18pt;
+}
+
+/* Merkez Legend */
+.merkez-legend {
+    padding: 15px 35px;
+    background: var(--bg-light);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.merkez-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 9pt;
+    font-weight: 500;
+}
+
+.merkez-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
