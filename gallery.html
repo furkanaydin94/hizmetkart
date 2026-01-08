@@ -4,31 +4,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hizmet Kartları - Sosyal Hizmetler Rapor Sistemi</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="css/main.css">
+    <title>Hizmet Kartları - Kurumsal Gelişim Portal</title>
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Design System -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/wizard.css">
     <link rel="stylesheet" href="css/gallery.css">
-    <link rel="stylesheet" href="css/customizer.css">
+
+    <!-- Libraries -->
     <script src="libs/xlsx.full.min.js"></script>
 </head>
 
 <body>
     <!-- Header -->
-    <header class="gallery-header">
+    <header class="page-header">
         <div class="header-content">
-            <img src="logo/logo.png" alt="Logo" class="header-logo">
+            <div class="brand">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="14" width="7" height="7"></rect>
+                    <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+                <span>Hizmet Kartları</span>
+            </div>
             <div class="header-actions">
-                <button class="btn-settings" id="btn-settings">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="3"></circle>
-                        <path
-                            d="M12 1v6m0 6v6m5.2-13.4l-4.3 4.3m-5.8 5.8L2.8 19M1 12h6m6 0h6m-13.4-5.2l4.3 4.3m5.8 5.8l4.3 4.3">
-                        </path>
-                    </svg>
-                    Rapor Özelleştirme
-                </button>
-                <a href="index.html" class="btn-back">
+                <a href="index.html" class="btn-header">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <polyline points="15 18 9 12 15 6"></polyline>
                     </svg>
@@ -36,89 +41,105 @@
                 </a>
             </div>
         </div>
+    </header>
 
-        <!-- Settings Dropdown -->
-        <div class="settings-dropdown" id="settings-dropdown">
-            <div class="dropdown-content">
-                <!-- Excel Yükleme -->
-                <div class="config-section excel-upload-section">
-                    <div class="section-header">
-                        <h3>📊 Excel Yükle</h3>
-                        <button class="btn-text" id="btn-clear-files">Temizle</button>
+    <!-- Wizard Container -->
+    <div class="wizard-container" id="wizard-container">
+
+        <!-- Tür/Hizmet Seçimi (Tek step - doğrudan açılıyor) -->
+        <div class="wizard-step wide active" id="step-customize">
+            <div class="step-card wide">
+                <div class="step-header-inline">
+                    <div>
+                        <h2 class="step-title">Tür ve Hizmet Seçimi</h2>
+                        <p class="step-description">Raporlara dahil edilecek öğeleri seçin</p>
                     </div>
-                    <div class="excel-upload-area">
-                        <input type="file" id="excel-input" accept=".xlsx,.xls" multiple hidden>
-                        <button class="btn-upload" id="btn-upload-excel">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                </div>
+
+                <!-- Rapor Tarihi Seçimi -->
+                <div class="report-date-section"
+                    style="margin-bottom: 1.5rem; padding: 1rem; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;">
+                    <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+                        <label style="font-weight: 600; color: #1e293b; font-size: 14px;">📅 Rapor Tarihi:</label>
+                        <input type="month" id="report-month"
+                            style="padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-family: inherit; font-size: 14px;">
+                        <span style="font-size: 12px; color: #64748b;">Seçilen ayın verileri kullanılacak</span>
+                    </div>
+                </div>
+
+                <div class="customize-grid">
+                    <!-- Tür Seçimi -->
+                    <div class="selection-section">
+                        <div class="selection-header">
+                            <h3>Türler</h3>
+                            <button class="btn btn-ghost btn-sm" id="btn-select-all-turler">Tümü</button>
+                        </div>
+                        <div class="selection-list" id="tur-list">
+                            <div style="text-align: center; padding: 1rem; color: var(--gray-400);">Yükleniyor...</div>
+                        </div>
+                    </div>
+
+                    <!-- Hizmet Seçimi -->
+                    <div class="selection-section">
+                        <div class="selection-header">
+                            <h3>Hizmetler</h3>
+                            <button class="btn btn-ghost btn-sm" id="btn-select-all-services">Tümü</button>
+                        </div>
+                        <div class="search-box">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2">
-                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                                <polyline points="17 8 12 3 7 8"></polyline>
-                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                             </svg>
-                            Dosya Seç (Birden Fazla)
-                        </button>
-                        <div class="file-list" id="file-list">
-                            <p class="file-list-empty">Varsayılan veri kullanılıyor</p>
+                            <input type="text" id="service-search" placeholder="Ara...">
+                        </div>
+                        <div class="selection-list scrollable" id="service-list">
+                            <div style="text-align: center; padding: 1rem; color: var(--gray-400);">Yükleniyor...</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Tür Seçimi -->
-                <div class="config-section">
-                    <div class="section-header">
-                        <h3>Tür Seçimi</h3>
-                        <button class="btn-text" id="btn-select-all-turler">Tümünü Seç</button>
+                <div class="step-actions">
+                    <div class="step-actions-row">
+                        <button class="btn btn-primary" id="btn-create-reports">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="3" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="14" width="7" height="7"></rect>
+                                <rect x="3" y="14" width="7" height="7"></rect>
+                            </svg>
+                            Raporları Oluştur
+                        </button>
                     </div>
-                    <div class="tur-list" id="tur-list">
-                        <div class="loading-placeholder">Türler yükleniyor...</div>
-                    </div>
-                </div>
-
-                <!-- Hizmet Seçimi -->
-                <div class="config-section">
-                    <div class="section-header">
-                        <h3>Hizmet Seçimi</h3>
-                        <button class="btn-text" id="btn-select-all-services">Tümünü Seç</button>
-                    </div>
-                    <div class="search-box">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        </svg>
-                        <input type="text" id="service-search" placeholder="Hizmet ara...">
-                    </div>
-                    <div class="service-list" id="service-list">
-                        <div class="loading-placeholder">Hizmetler yükleniyor...</div>
-                    </div>
-                </div>
-
-                <!-- Actions -->
-                <div class="dropdown-actions">
-                    <button class="btn-secondary" id="btn-reset">Varsayılana Dön</button>
-                    <button class="btn-primary" id="btn-apply">Uygula</button>
                 </div>
             </div>
         </div>
-    </header>
+    </div>
 
-    <!-- Main Container -->
-    <div class="gallery-container">
+    <!-- Gallery Container (Initially Hidden) -->
+    <div class="gallery-container" id="gallery-container" style="display: none;">
         <main class="gallery-content">
             <div class="content-header">
                 <div class="header-info">
                     <h2>Rapor Galerisi</h2>
                     <p id="gallery-stats">Lokasyonlar yükleniyor...</p>
                 </div>
+                <button class="btn btn-secondary" id="btn-back-to-wizard">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                    Ayarları Değiştir
+                </button>
             </div>
 
             <!-- Gallery Grid -->
             <div class="report-gallery" id="report-gallery">
-                <!-- Loading State -->
                 <div class="gallery-loading">
                     <div class="spinner"></div>
                     <p>Raporlar hazırlanıyor...</p>
                 </div>
+            </div>
         </main>
     </div>
 
